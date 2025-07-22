@@ -15,8 +15,8 @@ KEYCLOAK_IP=$(jq -r '.mongodb_keycloak_vm_external_ip.value' "$OUTPUT_JSON")
 
 
 ARGOCD_PASSWORD=$(kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d && echo)
-ARGOCD_IP=$(kubectl get svc -n argocd | grep argocd-server | grep LoadBalancer | awk '{print $4}')
-ARGOCD_SERVER="https://$ARGOCD_IP"
+ARGOCD_SERVER=$(kubectl get svc -n argocd | grep argocd-server | grep LoadBalancer | awk '{print $4}')
+# ARGOCD_SERVER="https://$ARGOCD_IP"
 ARGOCD_APP=cloud-native-ecommerce
 ARGOCD_USERNAME=admin
 
