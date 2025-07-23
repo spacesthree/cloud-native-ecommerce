@@ -103,7 +103,7 @@ jobs:
           cd infra/k8s
           SERVICES=("product" "order" "inventory" "ecommerce-ui")
           for SERVICE in "${SERVICES[@]}"; do
-            DEPLOY_PATH="${SERVICE}/deployment.yaml"
+            DEPLOY_PATH="${SERVICE}-deployment.yaml"
             echo "Updating $DEPLOY_PATH with new image tag..."
             IMAGE_NAME="$DOCKER_HUB_USERNAME"
             if [ "$SERVICE" = "ecommerce-ui" ]; then
