@@ -2,6 +2,7 @@ package application
 
 import (
 	"crypto/rand"
+	"encoding/hex"
 	"fmt"
 	"inventory-service/domain"
 	"inventory-service/domain/models"
