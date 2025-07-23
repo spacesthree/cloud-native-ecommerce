@@ -18,5 +18,11 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
   --namespace ingress-nginx
 ./apply_k8s.sh
 
+kubectl patch svc prometheus-stack-grafana \
+  -n monitoring \
+  -p '{"spec": {"type": "LoadBalancer"}}'
+
+
 sleep 60
 ./get_vars.sh
+
